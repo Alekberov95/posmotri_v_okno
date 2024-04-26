@@ -9,7 +9,10 @@ html {
 }
 
 .page {
+    display: flex;
+    align-items: center;
     inline-size: 1200px;
+    min-height: 800px;
     block-size: 100%;
     margin: auto;
     color: #fff;
@@ -52,7 +55,6 @@ ol {
     justify-items: center;
     align-items: center;
     width: 1140px;
-    margin-top: 133px;
 }
 
 .result {
@@ -72,13 +74,14 @@ ol {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center
 }
 
 .search-form {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
-    margin-top: 11px;
+    align-items: center;
+    margin-top: 16px;
 }
 
 .title {
@@ -90,7 +93,7 @@ ol {
 }
 
 .content__accent {
-    color: grey;
+    color: #545050;
 }
 
 .content__list {
@@ -98,7 +101,7 @@ ol {
     position: relative;
     height: 298px;
     overflow-y: auto;
-    padding-bottom: 3px;
+    padding-bottom: 2px;
 }
 
 /* Скрыть полосу прокрутки в Chrome и Safari 
@@ -111,13 +114,18 @@ ol {
     font-size: 18px;
     font-family: "Fira Sans Condensed", sans-serif;
     color: white;
-    font-weight: 700px;
+    font-weight: 700;
     text-align: center;
     line-height: 21.6px;
     background-color: transparent;
-    border: 1px solid white;
+    border: 1px solid currentColor;
     padding-top: 6px;
     padding-bottom: 6px;
+    
+}
+
+.button:hover {
+    text-decoration: underline;
     cursor: pointer;
 }
 
@@ -127,15 +135,18 @@ ol {
 
 .button:focus-visible {
     outline: 1px solid white;
+    outline-offset: 1px;
 }
 
 .button:active {
-    background-color: rgba(84, 80, 80, 0.5);
+    background-color: #545050;
 }
 
 .search-form__submit-button {
     padding-left: 73.5px;
     padding-right: 73.5px;
+    margin-bottom: 3px;
+    align-self: flex-end;
 }
 
 .more-button {
@@ -151,6 +162,8 @@ ol {
 
 .content__list-item {
     margin-bottom: 30px;
+    margin-left: 2px;
+    margin-right: 6px;
 }
 
 .content__list-item:focus {
@@ -166,7 +179,7 @@ ol {
 }
 
 .content__list-item:active {
-    background-color: rgba(84, 80, 80, 0.5);
+    background-color: #545050;
 }
 
 .content__list-item:not(:last-child) {
@@ -180,7 +193,7 @@ ol {
 
 .content__video-card {
     display: flex;
-    justify-content: flex-start;
+    width: 100%;
 }
 
 .content__video-card-title {
@@ -192,22 +205,19 @@ ol {
     flex-grow: 1;
 }
 
-.preloader {
-    position: absolute;
-}
-
-.search-form__fieldset-title {
-    font-family: "Fira Sans Condensed", sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 21.6px;
-    text-align: left;
-}
-
 .content__card-link {
+    display: block;
     text-decoration: none;
     color: white;
     margin: 1px 0;
+}
+
+.content__card-link:focus {
+    outline: none;
+}
+
+.content__card-link:focus-visible {
+    outline: 1px solid white;
 }
 
 .content__video-card-title {
@@ -230,8 +240,15 @@ ol {
 }
 
 .search-form__label {
-    display: inline-block;
+    display: flex;
+    gap: 7px;
+    align-items: center;
     width: fit-content;
+}
+
+.search-form__label-text:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .search-form__pseudo-checkbox {
@@ -268,29 +285,26 @@ input[type="checkbox"]:focus-visible::before + .search-form__pseudo-checkbox {
 }
 
 .search-form__label:has(:focus-visible) {
-    border: 1px solid white;
+    outline: 1px solid white;
 }
 
 .search-form__fieldset-title {
-    font-size: 18px;
     font-family: "Fira Sans Condensed", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
     line-height: 21.6px;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
 }
 
 .search-form__label {
     margin-bottom: 5px;
 }
 
-.search-form__fieldset input[type="text"] {
+.search-form__textfield {
+    border-left: 0;
+    border-right: 0;
     border-top: 1px solid white;
     border-bottom: 1px solid white;
-    border-left: none;
-    border-right: none;
-}
-
-.search-form__textfield {
-    outline: none;
     background-color: transparent;
     color: white;
     font-family: "Fira Sans Condensed", sans-serif;
@@ -298,7 +312,8 @@ input[type="checkbox"]:focus-visible::before + .search-form__pseudo-checkbox {
     font-weight: 400;
     line-height: 21.6px;
     width: 225px;
-    height: 27px;
+    height: 26px;
+    margin: 1px;
 }
 
 .search-form__textfield::placeholder {
@@ -308,7 +323,15 @@ input[type="checkbox"]:focus-visible::before + .search-form__pseudo-checkbox {
     line-height: 21.6px;
 }
 
-.search-form__textfield:focus,
+.search-form__textfield:focus {
+    outline: none;
+    border: none;
+}
+
 .search-form__textfield:focus-visible {
     outline: none;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
 }
