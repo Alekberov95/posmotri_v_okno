@@ -11,6 +11,7 @@ html {
 .page {
     display: flex;
     align-items: center;
+    justify-content: center;
     inline-size: 1200px;
     min-height: 800px;
     block-size: 100%;
@@ -178,7 +179,7 @@ ol {
     text-decoration: underline;
 }
 
-.content__list-item:active {
+.content__card-link_current {
     background-color: #545050;
 }
 
@@ -286,6 +287,7 @@ input[type="checkbox"]:focus-visible::before + .search-form__pseudo-checkbox {
 
 .search-form__label:has(:focus-visible) {
     outline: 1px solid white;
+    outline-offset: 1px;
 }
 
 .search-form__fieldset-title {
